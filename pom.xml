@@ -71,7 +71,7 @@
 	</description>
 	
 	<properties>
-		<nexus-version>2.3.0</nexus-version>
+		<nexus-version>2.5.0-04</nexus-version>
 	</properties>
 
 	<repositories>
@@ -254,6 +254,36 @@
 			</plugin>
 		</plugins>
 
+		<pluginManagement>
+		   <plugins>
+		      <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+		      <plugin>
+		         <groupId>org.eclipse.m2e</groupId>
+		         <artifactId>lifecycle-mapping</artifactId>
+		         <version>1.0.0</version>
+		         <configuration>
+		            <lifecycleMappingMetadata>
+		               <pluginExecutions>
+		                  <pluginExecution>
+		                     <pluginExecutionFilter>
+		                        <groupId>org.sonatype.plugins</groupId>
+		                        <artifactId>app-lifecycle-maven-plugin</artifactId>
+		                        <versionRange>[1.7,)</versionRange>
+		                        <goals>
+		                           <goal>generate-metadata</goal>
+		                           <goal>check-dependencies</goal>
+		                        </goals>
+		                     </pluginExecutionFilter>
+		                     <action>
+		                        <ignore></ignore>
+		                     </action>
+		                  </pluginExecution>
+		               </pluginExecutions>
+		            </lifecycleMappingMetadata>
+		         </configuration>
+		      </plugin>
+		   </plugins>
+		</pluginManagement>
 	</build>
 
 </project>

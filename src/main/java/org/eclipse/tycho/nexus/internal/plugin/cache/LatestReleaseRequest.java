@@ -43,7 +43,9 @@ public class LatestReleaseRequest extends ParsedRequest {
             }
 
             final String selectedVersion = selectVersion(versioning, versionRange, false);
-
+            if (selectedVersion == null) {
+                return new ConversionResult(requestPath);
+            }
             final String releaseVersionDirectory = groupArtifactPath + "/" + selectedVersion + "/";
 
             final String pathUpToVersion = releaseVersionDirectory + artifactNameStart + "-" + selectedVersion;

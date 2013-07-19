@@ -57,6 +57,9 @@ public class LatestVersionRequest extends ParsedRequest {
             final Versioning versioning = getVersioning(repository, metadataPath(groupArtifactPath + "/"));
 
             final String selectedVersion = selectVersion(versioning, versionRange, true);
+            if (selectedVersion == null) {
+                return new ConversionResult(requestPath);
+            }
             final String latestVersionDirectory = groupArtifactPath + "/" + selectedVersion + "/";
 
             if (selectedVersion.endsWith("-SNAPSHOT")) {
